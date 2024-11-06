@@ -1,0 +1,49 @@
+
+0-star_wars_100.txt-Prosečno vreme: 1.0793 ms
+
+SoundEx kod za unetu rec space: (S120)
+
+0-star_wars_1000.txt-Prosečno vreme: 3.2747 ms
+
+SoundEx kod za unetu rec space: (S120)
+ships. 
+0-star_wars_10000.txt-Prosečno vreme: 49.8561 ms
+
+SoundEx kod za unetu rec space: (S120)
+ships. spies scopes ships space. ships speaks. ships ships ships space, speaks sweeps ship's space. 
+0-star_wars_100000.txt-Prosečno vreme: 57.1848 ms
+
+SoundEx kod za unetu rec space: (S120)
+ships. spies scopes ships space. ships speaks. ships ships ships space, speaks sweeps ship's space. space. scopes ship's spooky ships speaks speaks, scopes. speaks ships. speaks, ship's swoops scopes space, space, ship's space, scopes. ships ships. space, ship's space. speak, sweeps space. space. speck space. ship's space. space. space. 
+1-star_wars_100.txt-Prosečno vreme: 0.4735 ms
+
+SoundEx kod za unetu rec darth vader: (D631)
+
+1-star_wars_1000.txt-Prosečno vreme: 2.2836 ms
+
+SoundEx kod za unetu rec darth vader: (D631)
+
+1-star_wars_10000.txt-Prosečno vreme: 14.6157 ms
+
+SoundEx kod za unetu rec darth vader: (D631)
+
+1-star_wars_100000.txt-Prosečno vreme: 31.2902 ms
+
+SoundEx kod za unetu rec darth vader: (D631)
+dreadful 
+2-star_wars_100.txt-Prosečno vreme: 0.3076 ms
+
+SoundEx kod za unetu rec ANOTHER ICE CORRIDOR: (A536)
+
+2-star_wars_1000.txt-Prosečno vreme: 1.1123 ms
+
+SoundEx kod za unetu rec ANOTHER ICE CORRIDOR: (A536)
+ANOTHER 
+2-star_wars_10000.txt-Prosečno vreme: 7.9802 ms
+
+SoundEx kod za unetu rec ANOTHER ICE CORRIDOR: (A536)
+ANOTHER another another another another another Another Another 
+2-star_wars_100000.txt-Prosečno vreme: 23.5728 ms
+
+SoundEx kod za unetu rec ANOTHER ICE CORRIDOR: (A536)
+ANOTHER another another another another another Another Another Another another another another another ANTEROOM another. another another another another another another, another ANTEROOM anteroom anteroom ANTEROOM ANTEROOM Another another Another another another another Another another 

@@ -1,0 +1,32 @@
+0-star_wars_100.txt-Prosečno vreme: 0.016408000000000006 ms
+
+0-star_wars_1000.txt-Prosečno vreme: 0.04901599999999999 ms
+
+0-star_wars_10000.txt-Prosečno vreme: 0.4943359999999999 ms
+
+0-star_wars_100000.txt-Prosečno vreme: 1.304324 ms
+
+1-star_wars_100.txt-Prosečno vreme: 0.006175999999999999 ms
+
+1-star_wars_1000.txt-Prosečno vreme: 0.05874399999999999 ms
+
+1-star_wars_10000.txt-Prosečno vreme: 0.6208800000000001 ms
+
+1-star_wars_100000.txt-Prosečno vreme: 1.679788 ms
+
+2-star_wars_100.txt-Prosečno vreme: 0.0063880000000000004 ms
+
+2-star_wars_1000.txt-Prosečno vreme: 0.05933999999999999 ms
+
+2-star_wars_10000.txt-Prosečno vreme: 0.6113 ms
+
+2-star_wars_100000.txt-Prosečno vreme: 1.6154800000000002 ms
+
+3-star_wars_100.txt-Prosečno vreme: 0.005715999999999999 ms
+
+3-star_wars_1000.txt-Prosečno vreme: 0.046816 ms
+
+3-star_wars_10000.txt-Prosečno vreme: 0.4872080000000001 ms
+
+3-star_wars_100000.txt-Prosečno vreme: 1.2783919999999998 ms
+
