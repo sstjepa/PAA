@@ -74,6 +74,7 @@ namespace PIA_Zad1
             File.WriteAllText("../../../resultKMP.txt", string.Empty);
 
             string[] filePaths = { @"../../../star_wars_100.txt", "../../../star_wars_1000.txt", "../../../star_wars_10000.txt", "../../../star_wars_100000.txt" };
+            string[] hexFiles = { @"../../../hex_100.txt", @"../../../hex_1000.txt", @"../../../hex_10000.txt", @"../../../hex_100000.txt" };
 
             for (int i = 0; i < 4; i++)
             {
@@ -107,6 +108,31 @@ namespace PIA_Zad1
                     {
                         double avg = sum / 25;
                         of.WriteLine($"{i}-{filePath.Remove(0, 9).ToString()}-Prosečno vreme: {avg} ms\n");
+                    }
+                }
+
+                foreach (string hexFile in hexFiles)
+                {
+                    double sum = 0;
+                    for (int j = 0; j < 25; j++)
+                    {
+                        string text = File.ReadAllText(hexFile);
+
+                        Stopwatch stopwatch = new Stopwatch();
+
+                        stopwatch.Start();
+                        KMPSearch(pattern, text);
+                        stopwatch.Stop();
+
+
+                        double time = stopwatch.ElapsedTicks / (double)10000;
+                        Console.WriteLine($"vreme: {time} ms");
+                        sum += time;
+                    }
+                    using (StreamWriter of = new StreamWriter(@"../../../resultKMP-Hex.txt", true))
+                    {
+                        double avg = sum / 25;
+                        of.WriteLine($"{i}-{hexFile.Remove(0, 9).ToString()}-Prosečno vreme: {avg} ms\n");
                     }
                 }
             }

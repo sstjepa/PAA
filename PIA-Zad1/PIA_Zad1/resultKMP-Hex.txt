@@ -1,0 +1,32 @@
+0-hex_100.txt-Prosečno vreme: 0.019903999999999988 ms
+
+0-hex_1000.txt-Prosečno vreme: 0.0666 ms
+
+0-hex_10000.txt-Prosečno vreme: 0.66322 ms
+
+0-hex_100000.txt-Prosečno vreme: 6.660528 ms
+
+1-hex_100.txt-Prosečno vreme: 0.008456000000000002 ms
+
+1-hex_1000.txt-Prosečno vreme: 0.079848 ms
+
+1-hex_10000.txt-Prosečno vreme: 0.8368559999999999 ms
+
+1-hex_100000.txt-Prosečno vreme: 7.519931999999999 ms
+
+2-hex_100.txt-Prosečno vreme: 0.007103999999999998 ms
+
+2-hex_1000.txt-Prosečno vreme: 0.06733600000000001 ms
+
+2-hex_10000.txt-Prosečno vreme: 0.687492 ms
+
+2-hex_100000.txt-Prosečno vreme: 6.6506 ms
+
+3-hex_100.txt-Prosečno vreme: 0.008280000000000001 ms
+
+3-hex_1000.txt-Prosečno vreme: 0.06761200000000002 ms
+
+3-hex_10000.txt-Prosečno vreme: 0.6697240000000001 ms
+
+3-hex_100000.txt-Prosečno vreme: 6.632372000000001 ms
+
