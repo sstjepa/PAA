@@ -22,6 +22,7 @@ namespace PIA_Zad2
             }
 
             Problem(ints);
+
         }
 
         public static void Problem(int[][] ints)
