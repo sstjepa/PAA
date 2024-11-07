@@ -8,36 +8,61 @@ namespace PIA_Zad2
 
         static void Main(string[] args)
         {
-            int n, k;
-
+            int[] test = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
             int[] array100 = new int[100];
             int[] array1000 = new int[1000];
             int[] array10k = new int[10000];
             int[] array100k = new int[100000];
             int[] arrat1m = new int[1000000];
             int[] array10m = new int[10000000];
-            Console.WriteLine("Hello, World!");
-            FillArray(array100);
-            PrintArray(array100);
 
-            Console.WriteLine("\n///////////////////////////");
-            BubbleSort(array100);
-            PrintArray(array100);
+            //int[][] ints = new int[][] { array100, array1000, array10k, array100k, arrat1m, array10m };
+            int[][] ints = new int[][] { test };
+            //foreach (int[] array in ints)
+            //{
+            //    FillArray(array);
+            //}
 
-            Console.WriteLine("\n///////////////////////////");
-            HeapSort(array100);
-            PrintArray(array100);
-
+            double total = Problem(ints);
+            Console.WriteLine("Total: " + total);
         }
 
-        public static void FillArray(int[] niz)
+        public static double Problem(int[][] ints)
+        {
+            double total = 0;
+            foreach (int[] array in ints)
+            {
+                int n = array.Length;
+                int k = n*2/10;
+                BubbleSort(array);
+
+                int cost = 0;
+                int right = n - 1;
+
+                for (int i = 0; i <= right; i++)
+                {
+                    cost += array[i];
+                    right -= k;
+                }
+                total += cost;
+            }
+            return total;
+        }
+
+        public static void FillArray(int[] array)
         {
             Random random = new Random();
-            for (int i = 0; i < niz.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                niz[i] = random.Next(10000);
+                array[i] = random.Next(10000);
             }
         }
+
+        public static void ClearArray(int[] array)
+        {
+            Array.Clear(array, 0, array.Length);
+        }
+
         public static void PrintArray(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
@@ -45,6 +70,7 @@ namespace PIA_Zad2
                 Console.Write(array[i]+" ");
             }
         }
+
         public static void BubbleSort(int[] array)
         {
             Stopwatch stopWatch = new Stopwatch();
