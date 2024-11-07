@@ -8,33 +8,58 @@ namespace PIA_Zad2
 
         static void Main(string[] args)
         {
-            int[] test = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
             int[] array100 = new int[100];
             int[] array1000 = new int[1000];
             int[] array10k = new int[10000];
             int[] array100k = new int[100000];
-            int[] arrat1m = new int[1000000];
+            int[] array1m = new int[1000000];
             int[] array10m = new int[10000000];
 
-            //int[][] ints = new int[][] { array100, array1000, array10k, array100k, arrat1m, array10m };
-            int[][] ints = new int[][] { test };
-            //foreach (int[] array in ints)
-            //{
-            //    FillArray(array);
-            //}
+            int[][] ints = new int[][] { array100, array1000, array10k, array100k, array1m, array10m };
+            foreach (int[] array in ints)
+            {
+                FillArray(array);
+            }
 
-            double total = Problem(ints);
-            Console.WriteLine("Total: " + total);
+            Problem(ints);
         }
 
-        public static double Problem(int[][] ints)
+        public static void Problem(int[][] ints)
         {
-            double total = 0;
+            Console.WriteLine("Izaberite jednu opciju: \n1) Bubble Sort \n2) Heap Sort \n3) Radix Sort");
+            int? opcija = null;
+            bool isValid = false;
+
+            while (!isValid)
+            {
+                opcija = Convert.ToInt32(Console.ReadLine());
+                if (opcija == 1 || opcija == 2 || opcija == 3)
+                {
+                    isValid = true;
+                }
+                else
+                {
+                    Console.WriteLine("Unesite validnu opciju!");
+                }
+            }
+
+
             foreach (int[] array in ints)
             {
                 int n = array.Length;
                 int k = n*2/10;
-                BubbleSort(array);
+                if (opcija == 1) 
+                {
+                    BubbleSort(array);
+                }
+                else if (opcija == 2)
+                {
+                    HeapSort(array);
+                }
+                else
+                {
+                    RadixSort(array);
+                }
 
                 int cost = 0;
                 int right = n - 1;
@@ -44,9 +69,8 @@ namespace PIA_Zad2
                     cost += array[i];
                     right -= k;
                 }
-                total += cost;
+                Console.WriteLine("Cheapest cost: " + cost);
             }
-            return total;
         }
 
         public static void FillArray(int[] array)
@@ -54,13 +78,8 @@ namespace PIA_Zad2
             Random random = new Random();
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = random.Next(10000);
+                array[i] = random.Next(1,10000);
             }
-        }
-
-        public static void ClearArray(int[] array)
-        {
-            Array.Clear(array, 0, array.Length);
         }
 
         public static void PrintArray(int[] array)
@@ -91,17 +110,18 @@ namespace PIA_Zad2
             }
             stopWatch.Stop();
             long memoryAfter = GC.GetTotalMemory(true);
-            double vreme = stopWatch.Elapsed.Ticks / (double)10000;
-            long memory = memoryAfter - memoryBefore;
-            Console.WriteLine("Memory used for BubbleSort: " + (memory.ToString()));
-            Console.WriteLine("Time used for BubbleSort: " + (vreme) + "ms");
+            double vreme = stopWatch.Elapsed.TotalMilliseconds;
+            long memoryUsage = memoryAfter - memoryBefore;
+            Console.WriteLine("Memory used for BubbleSort: " + memoryUsage.ToString());
+            Console.WriteLine("Time used for BubbleSort: " + vreme + "ms");
         }
 
         public static void HeapSort(int[] array)
         {
             Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
             long memoryBefore = GC.GetTotalMemory(true);
+            stopWatch.Start();
+            
             int n = array.Length;
             for (int i = n / 2 - 1; i >= 0; i--)
             {
@@ -116,11 +136,11 @@ namespace PIA_Zad2
             }
             stopWatch.Stop();
             long memoryAfter = GC.GetTotalMemory(true);
-            double vreme = stopWatch.Elapsed.Ticks/(double)10000;
-            long memory = memoryAfter - memoryBefore;
+            double vreme = stopWatch.Elapsed.TotalMilliseconds;
+            long memoryUsed = memoryAfter - memoryBefore;
 
-            Console.WriteLine("Memory used for HeapSort: " + (memory.ToString()));
-            Console.WriteLine("Time used for HeapSort: " + (vreme)+"ms");
+            Console.WriteLine("Memory used for HeapSort: " + memoryUsed.ToString());
+            Console.WriteLine("Time used for HeapSort: " + vreme +"ms");
         } 
 
         public static void Heapify(int[] array, int size, int index)
@@ -145,6 +165,52 @@ namespace PIA_Zad2
             }
         }
 
+        public static void RadixSort(int[] array)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            long memoryBefore = GC.GetTotalMemory(true);
+            stopWatch.Start();
+            int n = array.Length;
+            int max = array.Max();
+            for (int exp = 1; max / exp > 0; exp *= 10)
+            {
+                CountingSort(array, n, exp);
+            }
+            stopWatch.Stop();
+            long memoryAfter = GC.GetTotalMemory(true);
+            double vreme = stopWatch.Elapsed.TotalMilliseconds;
+            long memoryUsed = memoryAfter - memoryBefore;
 
+            Console.WriteLine("Memory used for RadixSort: " + memoryUsed.ToString());
+            Console.WriteLine("Time used for RadixSort: " + vreme + "ms");
+        }
+
+        public static void CountingSort(int[] array, int size, int exp)
+        {
+            int[] output = new int[size];
+            int[] count = new int[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                count[i] = 0;
+            }
+            for (int i = 0; i < size; i++)
+            {
+                count[(array[i] / exp) % 10]++;
+            }
+            for (int i = 1; i < 10; i++)
+            {
+                count[i] += count[i - 1];
+            }
+            for (int i = size - 1; i >= 0; i--)
+            {
+                output[count[(array[i] / exp) % 10] - 1] = array[i];
+                count[(array[i] / exp) % 10]--;
+            }
+            for (int i = 0; i < size; i++)
+            {
+                array[i] = output[i];
+            }
+        }
     }
 }
