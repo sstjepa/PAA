@@ -10,14 +10,13 @@
             {
                 arr[i] = random.Next(-10, 10);
             }
-            //int[] arr = { -4, -3, 9, 7, -4, 0, -6, 7, 2, 8, 3 };
             Console.WriteLine("Originalni niz: " + string.Join(", ", arr));
             Console.WriteLine();
 
             for (int i = 0; i < 3; i++)
             {
                 int start = random.Next(0, arr.Length);
-                int n = random.Next(start + 1, arr.Length + 1); // osiguravamo da n > start
+                int n = random.Next(start + 1, arr.Length);
 
                 int result = FindMinProduct(arr, start, n);
                 Console.WriteLine($"Minimalni proizvod podniza od {start} do {n - 1}: {result}\n");
@@ -38,7 +37,7 @@
                 return arr[start];
 
             int negative = int.MinValue;
-            int positive = int.MinValue;
+            int positive = int.MaxValue;
             int count_neg = 0, count_zero = 0;
             int mull = 1;
 
@@ -65,12 +64,14 @@
                 mull *= arr[i];
             }
 
-            if (count_zero == n|| (count_neg == 0 && count_zero > 0))
-                return 0;
-
-            if (count_neg == 0)
-                return positive;
-
+            if (count_neg == 0) 
+            { 
+                if (count_zero == n || count_zero>0)
+                    return 0;
+                else
+                    return positive;
+            }
+                
             if (count_neg % 2 == 0 && count_neg != 0)
             {
                 mull = mull / negative;
