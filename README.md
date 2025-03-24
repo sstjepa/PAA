@@ -1,3 +1,3 @@
 # PAA
 
-Projektovanje i Analiza Algoritama - Zadaci radjeni za laboratorijske vezbe
+Projektovanje i Analiza Algoritama - Zadaci radjeni za laboratorijske vezbe u C#
